@@ -1,1 +1,1 @@
-web: mvn spring-boot:run
+web: java -jar EMSApp-1.0-SNAPSHOT.jar
