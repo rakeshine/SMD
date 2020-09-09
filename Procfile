@@ -1,1 +1,1 @@
-web: java -jar target\EMSApp-1.0-SNAPSHOT.jar
+web: java -jar target/EMSApp-1.0-SNAPSHOT.jar
