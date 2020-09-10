@@ -10,37 +10,61 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Employee {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(name="first_name")
-	private String firstName;
-	
-	@Column(name="last_name")
-	private String lastName;
-	
-	@Column(name="user_name")
-	private String userName;
-	
-	@Column(name="email_id")
-	private String emailId;
-	
-	@Column(name="emp_id")
+
+	@Column(name = "emp_id")
 	private String empId;
-	
-	@Column(name="blood_gp")
-	private String bloodGp;
-	
-	@Column(name="age")
-	private int age;
-	
-	@Column(name="personal_email")
-	private String personalEmail;
-	
-	@Column(name="mobile_no")
-	private String mobileNo;
+
+	@Column(name = "name")
+	private String name;
+
+	@Column(name = "dob")
+	private String dob;
+
+	@Column(name = "gender")
+	private String gender;
+
+	@Column(name = "father_name")
+	private String fatherName;
+
+	@Column(name = "address")
+	private String address;
+
+	@Column(name = "email_id")
+	private String emailId;
+
+	@Column(name = "mobile_no")
+	private Long mobileNo;
+
+	@Column(name = "doj")
+	private String dateOfJoining;
+
+	@Column(name = "dot")
+	private String dateOfTermination;
+
+	@Column(name = "bank_name")
+	private String bankName;
+
+	@Column(name = "bank_ifsc")
+	private String bankIfscCode;
+
+	@Column(name = "acc_no")
+	private Long bankAccountNo;
+
+	@Column(name = "esi")
+	private String esiNo;
+
+	@Column(name = "epf")
+	private String epfNo;
+
+	@Column(name = "remarks")
+	private String remarks;
+
+	@Column(name = "comments")
+	private String comments;
 
 	public Long getId() {
 		return id;
@@ -48,38 +72,6 @@ public class Employee {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getEmailId() {
-		return emailId;
-	}
-
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
 	}
 
 	public String getEmpId() {
@@ -90,36 +82,139 @@ public class Employee {
 		this.empId = empId;
 	}
 
-	public String getBloodGp() {
-		return bloodGp;
+	public String getName() {
+		return name;
 	}
 
-	public void setBloodGp(String bloodGp) {
-		this.bloodGp = bloodGp;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public int getAge() {
-		return age;
+	public String getDob() {
+		return dob;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setDob(String dob) {
+		this.dob = dob;
 	}
 
-	public String getPersonalEmail() {
-		return personalEmail;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setPersonalEmail(String personalEmail) {
-		this.personalEmail = personalEmail;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
-	public String getMobileNo() {
+	public String getFatherName() {
+		return fatherName;
+	}
+
+	public void setFatherName(String fatherName) {
+		this.fatherName = fatherName;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public Long getMobileNo() {
 		return mobileNo;
 	}
 
-	public void setMobileNo(String mobileNo) {
+	public void setMobileNo(Long mobileNo) {
 		this.mobileNo = mobileNo;
+	}
+
+	public String getDateOfJoining() {
+		return dateOfJoining;
+	}
+
+	public void setDateOfJoining(String dateOfJoining) {
+		this.dateOfJoining = dateOfJoining;
+	}
+
+	public String getDateOfTermination() {
+		return dateOfTermination;
+	}
+
+	public void setDateOfTermination(String dateOfTermination) {
+		this.dateOfTermination = dateOfTermination;
+	}
+
+	public String getBankName() {
+		return bankName;
+	}
+
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+
+	public String getBankIfscCode() {
+		return bankIfscCode;
+	}
+
+	public void setBankIfscCode(String bankIfscCode) {
+		this.bankIfscCode = bankIfscCode;
+	}
+
+	public Long getBankAccountNo() {
+		return bankAccountNo;
+	}
+
+	public void setBankAccountNo(Long bankAccountNo) {
+		this.bankAccountNo = bankAccountNo;
+	}
+
+	public String getEsiNo() {
+		return esiNo;
+	}
+
+	public void setEsiNo(String esiNo) {
+		this.esiNo = esiNo;
+	}
+
+	public String getEpfNo() {
+		return epfNo;
+	}
+
+	public void setEpfNo(String epfNo) {
+		this.epfNo = epfNo;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+	public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+
+	public boolean isComplete() {
+		return (empId != null && name != null && dob != null && gender != null && fatherName != null && address != null
+				&& emailId != null && mobileNo != null && dateOfJoining != null && bankName != null
+				&& bankIfscCode != null && bankAccountNo != null && esiNo != null && epfNo != null
+				&& (remarks == null || remarks.isEmpty() || remarks.trim().isEmpty()));
 	}
 
 }

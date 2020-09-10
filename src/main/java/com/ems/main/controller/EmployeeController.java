@@ -11,35 +11,35 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ems.main.dto.EmployeeDTO;
+import com.ems.main.model.Employee;
 import com.ems.main.service.EmployeeService;
 
 @Controller
-public class RegistrationController {
+public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeService;
 	
 	@GetMapping("/registration")
 	public String reg(Map<String, Object> model) {
-		model.put("employee", new EmployeeDTO());
-		return "Registration";
+		model.put("employee", new Employee());
+		return "registration";
 	}
 	
-	@PostMapping("/home")
-	public String createEmployee(@ModelAttribute("employee") EmployeeDTO empDto) {
-		employeeService.createOrUpdateEmployee(empDto);
+	@PostMapping("/createOrUpdate")
+	public String createOrUpdateEmployee(@ModelAttribute("employee") Employee emp) {
+		employeeService.createOrUpdateEmployee(emp);
 		return "redirect:/list";	
 	}
 	
 	@GetMapping("/list")
 	public String listOfEmployee(Model model) {
-		List<EmployeeDTO> employeeList = employeeService.getAllEmployee();
+		List<Employee> employeeList = employeeService.getAllEmployee();
 		model.addAttribute("empList", employeeList);
 		return "employeeList";
 	}
 	
-	@PostMapping("/delete")
+	@GetMapping("/delete")
 	public String deleteEmployee(@RequestParam("id") String id) {
 		employeeService.deleteEmployee(Long.parseLong(id));
 		return "redirect:/list";		
@@ -47,9 +47,9 @@ public class RegistrationController {
 	
 	@GetMapping("/edit")
 	public String editEmployee(@RequestParam("id") String id, Map<String, Object> model) {
-		EmployeeDTO empDTO = employeeService.editEmployee(Long.parseLong(id));
-		model.put("employee", empDTO);
-		return "Registration";
+		Employee emp = employeeService.editEmployee(Long.parseLong(id));
+		model.put("employee", emp);
+		return "registration";
 	}
 	
 }
